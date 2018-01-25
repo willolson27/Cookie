@@ -1,11 +1,11 @@
-package Cookies;
+
 
 import java.util.Stack;
 
 public class CookieMonster {
 
 	int[] max;
-	static int[][] arr = 
+	static int[][] cookies = 
 		{{ 1,  3,  0 , 5, -1,  7, -1, -1,  0,  4,  2,  1}, 
 		{-1,  3,  2,  1, -1,  4, -1,  5,  3, -1,  1,  0},
 		 {5,  4,  8, -1,  3,  2,  2, -1, 4, -1,  0,  0},
@@ -22,37 +22,33 @@ public class CookieMonster {
 	
 	Stack stack = new Stack<int[]>();
 	
-	public int[] getNext(int[] location) {
+	
+	
+	public int optimalPath(int r, int c) {
+			
 		
-		int sum = location[2];
-		int xpos = location[0];
-		int ypos = location[1];
-		if (arr[])
-		else if (xpos >= ypos) {
-			xpos ++;	
+		int opt = 0;
+		
+		if (r == cookies.length && c == cookies[0].length || cookies[r+1][c] == -1 && cookies[r][c+1] == -1) 
+			return 0;
+		else if (r < cookies.length && !(c < cookies[0].length))
+			return (opt + optimalPath(r+1 ,c)); 
+		else if (c < cookies[0].length && !(r < cookies.length))
+			return (opt + optimalPath(r, c+1));
+		else {
+			if (cookies[r+1][c] > cookies[r][c+1])
+				return (opt + optimalPath(r+1, c));
+			else
+				return (opt + optimalPath(r, c+1));
+		
+		
 		}
-		else if (ypos > xpos)
-			
 		
-		return new int[xpos, ypos, sum];
-	}
-	
-	public int getOptimalPath(int r, int c) {
-			
-		
-		
-		
-		
-	}
-	
-	
-	
-	public static void main(String[] args) {
-		
-	//	max = arr[arr.length -1][arr.length - 1];
-		
+	//	return opt;
 	
 
 	}
+	
+	
 
 }
