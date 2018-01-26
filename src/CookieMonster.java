@@ -27,19 +27,32 @@ public class CookieMonster {
 	public int optimalPath(int r, int c) {
 			
 		
-		int opt = 0;
+	//	int opt = 0;
 		
-		if (r == cookies.length && c == cookies[0].length || cookies[r+1][c] == -1 && cookies[r][c+1] == -1) 
+	/*	if (r == cookies.length && c == cookies[0].length || cookies[r+1][c] == -1 && cookies[r][c+1] == -1) 
 			return 0;
 		else if (r < cookies.length && !(c < cookies[0].length))
-			return (opt + optimalPath(r+1 ,c)); 
+			return (opt + cookies[r+1][c] + optimalPath(r+1 ,c)); 
 		else if (c < cookies[0].length && !(r < cookies.length))
-			return (opt + optimalPath(r, c+1));
+			return (opt + cookies[r][c+1] + optimalPath(r, c+1));
 		else {
 			if (cookies[r+1][c] > cookies[r][c+1])
-				return (opt + optimalPath(r+1, c));
+				return (opt + cookies[r+1][c] +  optimalPath(r+1, c));
 			else
-				return (opt + optimalPath(r, c+1));
+				return (opt + cookies[r][c+1] + optimalPath(r, c+1));
+		*/
+		
+		if (r == 0 && c == 0) 
+			return 0;
+		else if (r > 0 && !(c > 0))
+			return (cookies[r-1][c] + optimalPath(r-1 ,c)); 
+		else if (c > 0 && !(r > 0))
+			return (cookies[r][c-1] + optimalPath(r, c-1));
+		else {
+			if (cookies[r-1][c] > cookies[r][c-1])
+				return (cookies[r-1][c] +  optimalPath(r-1, c));
+			else
+				return (cookies[r][c-1] + optimalPath(r, c-1));
 		
 		
 		}
